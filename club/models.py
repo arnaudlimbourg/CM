@@ -11,7 +11,7 @@ class Club(TimeStampedModel):
                             default=uuid.uuid4,
                             editable=False)
     name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=50, blank=True, null=True)
+    slug = models.SlugField(max_length=50)
 
     def __str__(self):
         return self.name

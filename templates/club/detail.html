@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Club : {{ club }}</h2>
+
+Ce club a {{ team_count }} équipes et {{ member_count }} membres
+Liste des membres
+
+<ul>
+    {% for member in members_list %}
+    <li>{{ member }} est {{ member.role }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

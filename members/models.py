@@ -12,7 +12,7 @@ class Role(models.TextChoices):
 
 class Team(TimeStampedModel):
     name = models.CharField(max_length=100)
-    club = models.ForeignKey("club.Club", on_delete=models.PROTECT)
+    club = models.ForeignKey("club.Club", related_name="teams", on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
@@ -21,7 +21,7 @@ class Team(TimeStampedModel):
 class Member(TimeStampedModel):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     full_name = models.CharField(max_length=250)
-    team = models.ManyToManyField(Team, through="MemberTeam")
+    team = models.ManyToManyField(Team, through="MemberTeam", related_name="members")
 
     def __str__(self):
         return self.full_name
