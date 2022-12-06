@@ -30,7 +30,7 @@ if SECRET_KEY is None:
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'cm.3a-python.repl.co', '2744956a-4a7c-4a30-8aff-58f523f4e642.id.repl.co'
+    '*',
 ]
 X_FRAME_OPTIONS = '*'
 
