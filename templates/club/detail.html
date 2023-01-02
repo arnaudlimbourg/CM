@@ -2,15 +2,25 @@
 
 {% block content %}
 
+<a href="{% url 'index' %}">Home</a>
+
 <h2>Club : {{ club }}</h2>
 
 Ce club a {{ team_count }} équipes et {{ member_count }} membres
 Liste des membres
 
+{% for team in teams %}
 <ul>
-    {% for member in members_list %}
-    <li>{{ member }} est {{ member.role }}</li>
-    {% endfor %}
-</ul>
+    {{ team }}
+    
+    <ul>
+        {% for member in team.memberteam_set.all %}
+            <li>{{ member.member }}</li>
+        {% endfor %}
+    </ul>
+</ul
+{% endfor %}
+
+
 
 {% endblock %}

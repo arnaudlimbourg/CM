@@ -29,5 +29,5 @@ def club_detail_view(request, slug):
     # On retire les doublons
     members = list(set(members))
     
-    context = {"club": club, "members_list": members, "team_count": club.teams.count(), "member_count": len(unique_members)}
+    context = {"club": club, "members_list": members, "teams": club.teams.all(), "team_count": club.teams.count(), "member_count": len(unique_members)}
     return render(request, "club/detail.html", context=context)

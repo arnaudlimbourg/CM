@@ -20,5 +20,5 @@ from club import views as club_views
 urlpatterns = [
     path("club/<slug:slug>", club_views.club_detail_view, name="club_detail_view"),
     path('admin/', admin.site.urls),
-    path("", club_views.index_view),
+    path("", club_views.index_view, name="index"),
 ]
