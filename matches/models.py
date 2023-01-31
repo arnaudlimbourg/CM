@@ -13,6 +13,7 @@ class Game(TimeStampedModel):
     def __str__(self):
         return f"{self.home_team} - {self.away_team}"
 
+
 class Call(TimeStampedModel):
     
     class Status(models.TextChoices):
@@ -23,3 +24,6 @@ class Call(TimeStampedModel):
     game = models.ForeignKey(Game, related_name="calls", on_delete=models.CASCADE)
     member = models.ForeignKey("members.MemberTeam", related_name="calls", on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.AWAITING_REPLY)
+
+    def __str__(self):
+        return f"{self.game} {self.member}"
